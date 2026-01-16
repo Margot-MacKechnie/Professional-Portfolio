@@ -1,10 +1,10 @@
-# Margot Gallagher - Portfolio
+# Margot MacKechnie - Portfolio
 
 Welcome to my professional portfolio! This site showcases my work at the intersection of sustainability, technology, and innovation.
 
 ## About Me
 
-I'm a senior at Syracuse University's Whitman School of Management studying Entrepreneurship and Emerging Enterprises with a minor in Information Technology, Design, and Startups from the iSchool. I'm passionate about turning sustainability challenges into business opportunities through innovative technology solutions.
+I'm a senior at Syracuse University's Whitman School of Management studying Entrepreneurship and Emerging Enterprises with a minor in Information Technology: Innovation, Design, and Startups from the iSchool. I'm passionate about turning sustainability challenges into business opportunities through innovative technology solutions.
 
 ## 🚀 Featured Projects
 
@@ -28,15 +28,15 @@ Concept for adaptive learning platform leveraging AI to personalize educational 
 
 ## 💻 Technical Skills
 
-- **Languages:** Python, JavaScript, Java, R
+- **Languages:** Python, JavaScript, Java, R, RStudio
 - **Specializations:** Sustainability Strategy, Green Supply Chain Management, Innovation Design, Business Consulting
-- **Coursework:** Climate Change Studies, Sustainable Venturing, Information Technology Design
+- **Coursework:** Climate Change Studies, Sustainable Venturing, Information Technology Design, Green Supply Chain, Entrepreneurial Problems and Turnarounds
 
 ## 📫 Connect With Me
 
-- **Portfolio:** [your-username.github.io](https://your-username.github.io)
-- **LinkedIn:** [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
-- **Email:** your.email@example.com
+- **Portfolio:** [Margot-MacKechnie.github.io](https://Margot-MacKechnie.github.io)
+- **LinkedIn:** [linkedin.com/in/margot-mackechnie-sustainable-innovation](https://linkedin.com/in/margot-mackechnie-sustainable-innovation)
+- **Email:** marmack04@gmail.com
 
 ## 🛠️ Built With
 
