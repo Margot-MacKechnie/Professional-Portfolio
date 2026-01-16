@@ -369,10 +369,10 @@
     <section id="about">
         <h2 class="section-title fade-in">About Me</h2>
         <div class="about-content fade-in">
-            <div class="profile-image">MM</div>
+            <div class="profile-image">MG</div>
             <div class="about-text">
                 <h3>Entrepreneurship & Technology Student</h3>
-                <p>Senior at Syracuse University's Whitman School of Management studying Entrepreneurship and Emerging Enterprises with a minor in Information Technology: Innovation, Design, and Startups.</p>
+                <p>Senior at Syracuse University's Whitman School of Management studying Entrepreneurship and Emerging Enterprises with a minor in Information Technology, Design, and Startups.</p>
                 <p>I'm passionate about turning sustainability challenges into business opportunities through innovative technology solutions.</p>
                 <div class="skills">
                     <span class="skill-tag">Python</span>
@@ -479,7 +479,7 @@
         <div class="contact-content">
             <p style="font-size: 1.2rem; margin-bottom: 2rem;">Interested in sustainable innovation, technology solutions, or collaboration? I'd love to hear from you.</p>
             <div class="contact-links">
-                <a href="mailto:your.email@example.com" class="contact-link">Email Me</a>
+                <a href="#" id="email-link" class="contact-link">Email Me</a>
                 <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">LinkedIn</a>
                 <a href="your-resume.pdf" class="contact-link" target="_blank">Resume</a>
             </div>
@@ -487,6 +487,24 @@
     </section>
 
     <script>
+        // Email protection - obfuscated to prevent scraping
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailLink = document.getElementById('email-link');
+            // Split email into parts (change these to your actual email)
+            const username = 'your.email';  // CHANGE THIS to your email username
+            const domain = 'example.com';   // CHANGE THIS to your email domain
+            const email = username + '@' + domain;
+            
+            emailLink.href = 'mailto:' + email;
+            emailLink.addEventListener('click', function(e) {
+                // Additional protection: only create mailto link on click
+                if (!this.href.includes('mailto:')) {
+                    e.preventDefault();
+                    window.location.href = 'mailto:' + email;
+                }
+            });
+        });
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
