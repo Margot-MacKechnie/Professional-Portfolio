@@ -36,7 +36,6 @@ Concept for adaptive learning platform leveraging AI to personalize educational 
 
 - **Portfolio:** [Margot-MacKechnie.github.io](https://Margot-MacKechnie.github.io)
 - **LinkedIn:** [linkedin.com/in/margot-mackechnie-sustainable-innovation](https://linkedin.com/in/margot-mackechnie-sustainable-innovation)
-- **Email:** marmack04@gmail.com
 
 ## 🛠️ Built With
 
