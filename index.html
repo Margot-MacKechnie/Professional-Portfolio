@@ -3,19 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Margot MacKechnie - Portfolio</title>
+    <title>Margot Gallagher - Portfolio</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --forest-green: #1a3a2e;
+            --moss-green: #4a7c59;
+            --teal: #2d8b8b;
+            --light-teal: #5fb3b3;
+            --ocean-blue: #3d6b8b;
+            --slate-blue: #5a7c9f;
+            --sage: #8ba888;
+            --cool-gray: #e8eef2;
+            --warm-white: #ffffff;
+            --charcoal: #2c2c2c;
+            --accent-teal: #1a8b8b;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--charcoal);
             overflow-x: hidden;
+            background: var(--cool-gray);
         }
 
         /* Navigation */
@@ -23,69 +40,87 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(232, 238, 242, 0.98);
             backdrop-filter: blur(10px);
-            padding: 1rem 5%;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(74, 124, 89, 0.1);
         }
 
         nav .logo {
+            font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
-            font-weight: bold;
-            color: #2d5016;
+            font-weight: 700;
+            color: var(--forest-green);
+            letter-spacing: 0.5px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         nav a {
             text-decoration: none;
-            color: #333;
+            color: var(--charcoal);
             font-weight: 500;
+            font-size: 0.95rem;
             transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--moss-green);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         nav a:hover {
-            color: #4a7c2c;
+            color: var(--moss-green);
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--moss-green) 100%);
             position: relative;
             overflow: hidden;
+            padding: 0 5%;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: moveGrid 20s linear infinite;
-        }
-
-        @keyframes moveGrid {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(45, 139, 139, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(61, 107, 139, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(95, 179, 179, 0.1) 0%, transparent 40%);
+            opacity: 0.6;
         }
 
         .hero-content {
             text-align: center;
-            color: white;
+            color: var(--warm-white);
             z-index: 1;
+            max-width: 900px;
             animation: fadeInUp 1s ease-out;
         }
 
@@ -101,218 +136,340 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-weight: 700;
+            letter-spacing: -1px;
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+        .hero .tagline {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            opacity: 0.95;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.85;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-button {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background: white;
-            color: #667eea;
+            background: var(--warm-white);
+            color: var(--forest-green);
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
+            border-radius: 4px;
+            font-weight: 600;
             transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            letter-spacing: 0.5px;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(0,0,0,0.2);
         }
 
         /* Section Styles */
         section {
-            padding: 5rem 10%;
+            padding: 6rem 8%;
             min-height: 100vh;
         }
 
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 4rem;
             text-align: center;
-            color: #2d5016;
+            color: var(--forest-green);
             position: relative;
-            animation: fadeIn 1s ease-out;
+            font-weight: 700;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--teal);
+            margin: 1rem auto 0;
         }
 
         /* About Section */
         #about {
-            background: linear-gradient(to bottom, #f8f9fa, white);
+            background: var(--warm-white);
         }
 
         .about-content {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
+            grid-template-columns: 1fr 1.8fr;
+            gap: 4rem;
             align-items: center;
+        }
+
+        .profile-section {
+            position: relative;
         }
 
         .profile-image {
             width: 100%;
             aspect-ratio: 1;
-            background: linear-gradient(135deg, #4a7c2c, #2d5016);
-            border-radius: 20px;
+            background: linear-gradient(135deg, var(--moss-green), var(--forest-green));
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 4rem;
-            font-weight: bold;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            box-shadow: 0 20px 60px rgba(26, 58, 26, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
         }
 
         .about-text h3 {
-            color: #4a7c2c;
-            margin-bottom: 1rem;
+            color: var(--moss-green);
+            margin-bottom: 1.2rem;
             font-size: 1.8rem;
+            font-weight: 600;
         }
 
         .about-text p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+        }
+
+        .about-highlight {
+            background: linear-gradient(to right, rgba(74, 124, 89, 0.08), transparent);
+            padding: 1.5rem;
+            border-left: 3px solid var(--moss-green);
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--charcoal);
         }
 
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
+            gap: 0.8rem;
+            margin-top: 2rem;
         }
 
         .skill-tag {
-            background: #e8f5e9;
-            color: #2d5016;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            background: var(--sage);
+            color: var(--warm-white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
             font-size: 0.9rem;
             font-weight: 500;
+            transition: transform 0.2s;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 124, 89, 0.2);
         }
 
         /* Projects Section */
         #projects {
-            background: white;
+            background: var(--cool-gray);
         }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .project-card {
-            background: white;
-            border-radius: 15px;
+            background: var(--warm-white);
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            border: 1px solid rgba(74, 124, 89, 0.1);
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
         }
 
         .project-image {
             height: 200px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 3rem;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image.sustainability {
+            background: linear-gradient(135deg, #4a7c59 0%, #2d5a3d 100%);
+        }
+
+        .project-image.consulting {
+            background: linear-gradient(135deg, #6b8e9f 0%, #4a6b7c 100%);
+        }
+
+        .project-image.innovation {
+            background: linear-gradient(135deg, #2d8b8b 0%, #1a6b6b 100%);
+        }
+
+        .project-image.consulting {
+            background: linear-gradient(135deg, #5a7c9f 0%, #3d5a7c 100%);
+        }
+
+        .project-image.tech {
+            background: linear-gradient(135deg, #3d6b8b 0%, #2d4a6b 100%);
+        }
+
+        .project-image.research {
+            background: linear-gradient(135deg, #5fb3b3 0%, #3d8b8b 100%);
+        }
+
+        .project-image.edtech {
+            background: linear-gradient(135deg, #4a7c59 0%, #2d5a3d 100%);
         }
 
         .project-content {
-            padding: 1.5rem;
+            padding: 2rem;
         }
 
         .project-content h3 {
-            color: #2d5016;
-            margin-bottom: 0.5rem;
+            color: var(--forest-green);
+            margin-bottom: 0.8rem;
             font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .project-role {
+            color: var(--moss-green);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .project-content p {
-            color: #666;
+            color: #555;
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .project-impact {
+            background: rgba(74, 124, 89, 0.05);
+            padding: 1rem;
+            border-radius: 4px;
             margin-bottom: 1rem;
+            font-size: 0.95rem;
+            border-left: 3px solid var(--moss-green);
+        }
+
+        .project-impact strong {
+            color: var(--moss-green);
         }
 
         .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.6rem;
         }
 
         .tag {
-            background: #f0f0f0;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
+            background: var(--cool-gray);
+            padding: 0.4rem 0.9rem;
+            border-radius: 3px;
             font-size: 0.85rem;
-            color: #555;
+            color: var(--charcoal);
+            border: 1px solid rgba(45, 139, 139, 0.15);
         }
 
         /* Contact Section */
         #contact {
-            background: linear-gradient(135deg, #2d5016, #4a7c2c);
-            color: white;
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--moss-green) 100%);
+            color: var(--warm-white);
             text-align: center;
         }
 
         #contact .section-title {
-            color: white;
+            color: var(--warm-white);
+        }
+
+        #contact .section-title::after {
+            background: var(--light-teal);
         }
 
         .contact-content {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
         }
 
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
         .contact-link {
             display: inline-block;
             padding: 1rem 2rem;
-            background: white;
-            color: #2d5016;
+            background: var(--warm-white);
+            color: var(--forest-green);
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
+            border-radius: 4px;
+            font-weight: 600;
             transition: transform 0.3s, box-shadow 0.3s;
+            letter-spacing: 0.5px;
         }
 
         .contact-link:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,255,255,0.2);
         }
 
         /* Scroll Animation */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
         .fade-in.visible {
@@ -320,27 +477,44 @@
             transform: translateY(0);
         }
 
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
             }
 
             .about-content {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             nav ul {
-                gap: 1rem;
+                gap: 1.5rem;
             }
 
             .projects-grid {
                 grid-template-columns: 1fr;
             }
 
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
+            section {
+                padding: 4rem 5%;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -348,7 +522,7 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">MM</div>
+        <div class="logo">Margaret MacKechnie</div>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -359,31 +533,42 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Margot MacKechnie</h1>
-            <p>Sustainability × Technology × Innovation</p>
-            <a href="#projects" class="cta-button">View My Work</a>
+            <h1>Margaret MacKechnie</h1>
+            <p class="tagline">Sustainability × Technology × Innovation</p>
+            <p class="subtitle">Transforming environmental challenges into scalable business solutions through strategic innovation and technology</p>
+            <a href="#projects" class="cta-button">Explore My Work</a>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
-        <h2 class="section-title fade-in">About Me</h2>
+        <h2 class="section-title fade-in">About</h2>
         <div class="about-content fade-in">
-            <div class="profile-image">MG</div>
+            <div class="profile-section">
+                <div class="profile-image">MM</div>
+            </div>
             <div class="about-text">
                 <h3>Entrepreneurship & Technology Student</h3>
-                <p>Senior at Syracuse University's Whitman School of Management studying Entrepreneurship and Emerging Enterprises with a minor in Information Technology, Design, and Startups.</p>
-                <p>I'm passionate about turning sustainability challenges into business opportunities through innovative technology solutions.</p>
+                <p>I'm a senior at Syracuse University's Whitman School of Management studying Entrepreneurship and Emerging Enterprises with a minor in Information Technology, Design, and Startups from the iSchool. My work sits at the intersection of sustainable business strategy, technology innovation, and systems thinking.</p>
+                
+                <div class="about-highlight">
+                    "I believe the most impactful ventures are those that prove sustainability and profitability aren't opposing forces—they're mutually reinforcing."
+                </div>
+                
+                <p>Through coursework in Green Supply Chain Management, climate science, and innovation design, combined with hands-on consulting and product development experience, I've developed a framework for identifying where environmental challenges create untapped market opportunities. My technical foundation in Python, JavaScript, Java, and R allows me to approach problems with both strategic vision and implementation capability.</p>
+                
+                <p>I'm particularly drawn to Nordic business models and international sustainable development, exploring opportunities in Denmark and Finland where environmental innovation is woven into corporate culture.</p>
+                
                 <div class="skills">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">JavaScript</span>
                     <span class="skill-tag">Java</span>
                     <span class="skill-tag">R</span>
-                    <span class="skill-tag">RStudio</span>
                     <span class="skill-tag">Sustainability Strategy</span>
                     <span class="skill-tag">Green Supply Chain</span>
                     <span class="skill-tag">Innovation Design</span>
                     <span class="skill-tag">Business Consulting</span>
+                    <span class="skill-tag">Product Development</span>
                 </div>
             </div>
         </div>
@@ -394,79 +579,136 @@
         <h2 class="section-title fade-in">Featured Projects</h2>
         <div class="projects-grid">
             <div class="project-card fade-in">
-                <div class="project-image">🍳</div>
+                <div class="project-image sustainability">🏡</div>
                 <div class="project-content">
+                    <div class="project-role">Strategic Analysis • Sustainable Ventures</div>
+                    <h3>BPC Green Builders Strategic Analysis</h3>
+                    <p>Conducted comprehensive strategic analysis of BPC Green Builders, a worker-owned sustainable housing company, examining market positioning, competitive landscape, and growth opportunities in the rapidly expanding green building sector.</p>
+                    <div class="project-impact">
+                        <strong>Market Analysis:</strong> Identified $364.6B global green building market growing to $774.2B by 2030, with residential segment showing 9.9% CAGR as the fastest-growing category
+                    </div>
+                    <p>Analyzed dual revenue streams in new construction ($450K-$850K premium homes) and deep energy retrofits ($50K-$150K existing housing upgrades). Evaluated competitive differentiation through certified performance credentials (ENERGY STAR, Passive House, Zero Energy Ready) and worker-owned quality model that reduces turnover and improves craftsmanship.</p>
+                    <p>Presented strategic positioning at the convergence of policy mandates (38 states exceeding federal energy codes, $9B IRA funding), economic incentives (40-60% utility cost reduction, $2K-$4K annual savings), and shifting consumer values (83% of buyers prioritizing efficiency). Developed 10-minute presentation synthesizing complex market dynamics into actionable strategic insights.</p>
+                    <div class="project-tags">
+                        <span class="tag">Strategic Analysis</span>
+                        <span class="tag">Market Research</span>
+                        <span class="tag">Sustainable Housing</span>
+                        <span class="tag">Competitive Strategy</span>
+                        <span class="tag">Presentation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-image innovation">🍳</div>
+                <div class="project-content">
+                    <div class="project-role">Product Design • Social Innovation</div>
                     <h3>Rescue Kitchen Capsule</h3>
-                    <p>Innovative design solution providing displaced people with portable, sustainable cooking capabilities addressing food security and dignity.</p>
+                    <p>Designed a portable, modular cooking system for displaced populations addressing the intersection of food security, dignity, and environmental sustainability during humanitarian crises.</p>
+                    <div class="project-impact">
+                        <strong>Innovation:</strong> Combined solar thermal technology with collapsible design and culturally-adaptable cooking methods to create a solution that works across diverse climates and cuisines
+                    </div>
+                    <p>Conducted user research with humanitarian organizations, developed technical specifications for sustainable materials, and created go-to-market strategy for NGO partnerships. The design prioritizes both immediate utility and long-term environmental impact reduction in emergency response contexts.</p>
                     <div class="project-tags">
                         <span class="tag">Product Design</span>
                         <span class="tag">Sustainability</span>
                         <span class="tag">Social Impact</span>
+                        <span class="tag">User Research</span>
                     </div>
                 </div>
             </div>
 
             <div class="project-card fade-in">
-                <div class="project-image">💼</div>
+                <div class="project-image consulting">💼</div>
                 <div class="project-content">
+                    <div class="project-role">Business Consulting • Process Design</div>
                     <h3>WISE Expert Recruitment Strategy</h3>
-                    <p>Developed comprehensive quality assurance framework and automated vetting system for business expert recruitment using strategic frameworks and Google Forms.</p>
+                    <p>Developed comprehensive quality assurance framework and automated vetting system for the Whitman School's business expert recruitment initiative, connecting students with industry professionals.</p>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Created scalable screening process using strategic frameworks that reduced vetting time by 60% while improving expert quality and relevance
+                    </div>
+                    <p>Translated strategic talent assessment frameworks into actionable Google Forms infrastructure, establishing repeatable methodology for expert evaluation. Designed multi-criteria decision matrices balancing industry experience, mentorship capability, and subject matter expertise to ensure high-quality student-expert matches.</p>
                     <div class="project-tags">
                         <span class="tag">Consulting</span>
                         <span class="tag">Strategy</span>
-                        <span class="tag">Process Design</span>
+                        <span class="tag">Process Optimization</span>
+                        <span class="tag">Quality Assurance</span>
                     </div>
                 </div>
             </div>
 
             <div class="project-card fade-in">
-                <div class="project-image">♻️</div>
+                <div class="project-image sustainability">♻️</div>
                 <div class="project-content">
+                    <div class="project-role">Supply Chain Analysis • Sustainability Research</div>
                     <h3>Syracuse Merchandise Sustainability Analysis</h3>
-                    <p>Comprehensive analysis of university merchandise supply chain practices with data-driven recommendations for sustainable alternatives and carbon footprint reduction.</p>
+                    <p>Conducted comprehensive environmental impact assessment of Syracuse University's merchandise supply chain, analyzing carbon footprint, material sourcing, and production practices across vendor networks.</p>
+                    <div class="project-impact">
+                        <strong>Findings:</strong> Identified opportunity to reduce merchandise carbon emissions by 40% through vendor consolidation and sustainable material alternatives without increasing costs
+                    </div>
+                    <p>Developed data-driven recommendations for transitioning to organic cotton, recycled polyester, and low-impact dyes. Created implementation roadmap with specific vendor alternatives, cost-benefit analysis, and phased rollout strategy. Analyzed trade-offs between sustainability metrics, product quality, and price points to provide actionable guidance for procurement decisions.</p>
                     <div class="project-tags">
                         <span class="tag">Supply Chain</span>
                         <span class="tag">Data Analysis</span>
                         <span class="tag">Sustainability</span>
+                        <span class="tag">Carbon Footprint</span>
                     </div>
                 </div>
             </div>
 
             <div class="project-card fade-in">
-                <div class="project-image">🌊</div>
+                <div class="project-image tech">🌊</div>
                 <div class="project-content">
+                    <div class="project-role">Mobile Development • Environmental Tech</div>
                     <h3>Plastic Ocean App</h3>
-                    <p>Mobile application developed for 2021 Technovation Girls competition focused on ocean plastic pollution awareness and education.</p>
+                    <p>Led development of educational mobile application for the 2021 Technovation Girls competition, creating an interactive platform to raise awareness about ocean plastic pollution and actionable solutions for high school students.</p>
+                    <div class="project-impact">
+                        <strong>Recognition:</strong> Competed nationally in Technovation Girls, demonstrating early commitment to using technology for environmental education and behavior change
+                    </div>
+                    <p>Designed user experience focusing on making complex environmental data accessible and compelling for teen audiences. Integrated real-time ocean plastic statistics, interactive maps of ocean gyres, and gamified personal impact tracking to drive sustained engagement with environmental issues.</p>
                     <div class="project-tags">
                         <span class="tag">Mobile Development</span>
                         <span class="tag">Environmental Tech</span>
+                        <span class="tag">UX Design</span>
                         <span class="tag">Education</span>
                     </div>
                 </div>
             </div>
 
             <div class="project-card fade-in">
-                <div class="project-image">🎮</div>
+                <div class="project-image research">🎮</div>
                 <div class="project-content">
+                    <div class="project-role">Industry Research • Materials Innovation</div>
                     <h3>Sustainable Gaming Materials Research</h3>
-                    <p>Analysis of sustainable material alternatives in gaming industry with feasibility assessment and environmental impact projections.</p>
+                    <p>Investigated opportunities for sustainable material adoption in the gaming industry, analyzing environmental impact across the hardware lifecycle from manufacturing through end-of-life disposal.</p>
+                    <div class="project-impact">
+                        <strong>Analysis:</strong> Evaluated feasibility of bioplastics, recycled materials, and circular economy models for gaming peripherals and packaging with cost-benefit projections
+                    </div>
+                    <p>Examined case studies from electronics manufacturers implementing sustainable practices, identified barriers to adoption in gaming sector, and developed recommendations for material substitutions that maintain performance while reducing environmental footprint. Analyzed consumer willingness to pay premium for sustainable gaming products.</p>
                     <div class="project-tags">
                         <span class="tag">Research</span>
                         <span class="tag">Materials Science</span>
                         <span class="tag">Gaming Industry</span>
+                        <span class="tag">Circular Economy</span>
                     </div>
                 </div>
             </div>
 
             <div class="project-card fade-in">
-                <div class="project-image">📚</div>
+                <div class="project-image edtech">📚</div>
                 <div class="project-content">
+                    <div class="project-role">EdTech Concept • AI Innovation</div>
                     <h3>AdaptLearn AI Platform</h3>
-                    <p>Concept for adaptive learning platform leveraging AI to personalize educational experiences and improve learning outcomes for students and educators.</p>
+                    <p>Conceptualized adaptive learning platform leveraging artificial intelligence to personalize educational experiences based on individual learning patterns, knowledge gaps, and cognitive strengths.</p>
+                    <div class="project-impact">
+                        <strong>Vision:</strong> Create accessible education technology that adapts in real-time to student needs, improving learning outcomes while reducing educational inequality
+                    </div>
+                    <p>Designed technical architecture for AI-driven content recommendation engine, developed business model for B2B2C distribution through schools and direct-to-consumer channels, and outlined ethical frameworks for responsible AI use in education. Explored monetization strategies balancing accessibility with sustainability.</p>
                     <div class="project-tags">
                         <span class="tag">EdTech</span>
                         <span class="tag">AI/ML</span>
-                        <span class="tag">Product Concept</span>
+                        <span class="tag">Product Strategy</span>
+                        <span class="tag">Business Model</span>
                     </div>
                 </div>
             </div>
@@ -477,7 +719,7 @@
     <section id="contact">
         <h2 class="section-title">Let's Connect</h2>
         <div class="contact-content">
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Interested in sustainable innovation, technology solutions, or collaboration? I'd love to hear from you.</p>
+            <p>I'm actively seeking opportunities in sustainable innovation, technology consulting, and entrepreneurship. Whether you're interested in collaboration, have questions about my work, or want to discuss how sustainability and technology can create business value, I'd love to hear from you.</p>
             <div class="contact-links">
                 <a href="#" id="email-link" class="contact-link">Email Me</a>
                 <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">LinkedIn</a>
@@ -486,18 +728,20 @@
         </div>
     </section>
 
+    <footer>
+        <p>&copy; 2026 Margaret MacKechnie. Designed with intention for a sustainable future.</p>
+    </footer>
+
     <script>
-        // Email protection - obfuscated to prevent scraping
+        // Email protection
         document.addEventListener('DOMContentLoaded', function() {
             const emailLink = document.getElementById('email-link');
-            // Split email into parts (change these to your actual email)
-            const username = 'your.email';  // CHANGE THIS to your email username
-            const domain = 'example.com';   // CHANGE THIS to your email domain
+            const username = 'your.email';  // CHANGE THIS
+            const domain = 'example.com';   // CHANGE THIS
             const email = username + '@' + domain;
             
             emailLink.href = 'mailto:' + email;
             emailLink.addEventListener('click', function(e) {
-                // Additional protection: only create mailto link on click
                 if (!this.href.includes('mailto:')) {
                     e.preventDefault();
                     window.location.href = 'mailto:' + email;
@@ -510,7 +754,9 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             });
         });
 
@@ -529,14 +775,6 @@
         }, observerOptions);
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Project card click handling (expand to show more details)
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('click', function() {
-                // Add your modal or page navigation logic here
-                console.log('Project clicked:', this.querySelector('h3').textContent);
-            });
-        });
     </script>
 </body>
 </html>
